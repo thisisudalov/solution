@@ -1,0 +1,41 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+class Solution {
+    private StringBuilder sb = new StringBuilder();
+
+    private String read(){
+    try
+    {
+        FileReader file_in = new FileReader("D:\\work\\solution\\in.txt");
+        BufferedReader br = new BufferedReader(file_in);
+
+        String str;
+        while ((str=br.readLine())!=null){
+            sb.append(str);
+            sb.append("\n");
+        }
+        System.out.println(sb);
+    } catch (IOException e){
+        System.out.println("Error with reading file");
+        System.exit(1);
+    }
+    return sb.toString();
+    }
+
+    public void count(){
+
+        String[] str_arr_1d = read().split("\n");
+        String[][] str_arr_2d = new String[str_arr_1d.length][4];
+        for (int i = 0; i < str_arr_1d.length; i++) {
+            str_arr_2d[i] = str_arr_1d[i].split(";");
+            System.out.println(str_arr_2d[i][3]);
+        }
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        s.count();
+    }
+}
